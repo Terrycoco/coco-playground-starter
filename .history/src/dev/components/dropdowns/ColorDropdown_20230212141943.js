@@ -1,0 +1,7 @@
+import { useState } from "react";
+import Select from "react-select";
+import { useTheme } from "@/hooks";
+
+const ColorDropdown = (props) => {};
+
+export default ColorDropdown;
