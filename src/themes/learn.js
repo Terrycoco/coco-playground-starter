@@ -1,6 +1,14 @@
-import { getFontVariable } from "@/utils/fonts";
+const screens = {
+  //min widths
+  mobile: "0em",
+  lgMobile: "36em", //576px
+  tablet: "48em", //768px
+  laptop: "62em", //992
+  desktop: "75em", //1200px
+  tv: "87.5em", //1400px
+};
 
-export const colors = {
+const colors = {
   primary: "#fc3a79",
   secondary: "#fe572e",
   blackish: "#261f22",
@@ -8,88 +16,89 @@ export const colors = {
   error: "#dc2626",
 };
 
-export const colorVariants = {};
+const colorVariants = {};
 
-export const fonts = {
-  body: "var(--font-montserrat)",
-  display: "var(--font-josefin-sans)",
-  special: "var(--font-oleo-script)",
-  mono: "var(--font-space-mono)",
+const fonts = {
+  body: "Montserrat",
+  display: "Josefin Sans",
+  special: "Oleo Script",
+  mono: "Space Mono",
 };
 
-export const text = {
+const text = {
   h1: {
-    color: colors.primary,
+    color: colors.blackish,
     fontFamily: "var(--font-display)",
-    fontSize: "122px",
-    fontWeight: "normal",
-    lineHeight: 1.1,
-    letterSpacing: "-.9px",
+    fontSize: "6.063rem",
+    fontWeight: "lighter",
+    lineHeight: 1,
+    letterSpacing: "-1.5px",
+    wordSpacing: "-5px",
   },
   h2: {
-    color: colors.primary,
-    fontFamily: "var(--font-body)",
-    fontSize: "96px",
+    color: colors.blackish,
+    fontFamily: "var(--font-display)",
+    fontSize: "4.75rem",
     fontWeight: "lighter",
-    lineHeight: 1.2,
-    letterSpacing: "-.9px",
+    lineHeight: 1.1,
+    letterSpacing: "-0.5px",
   },
   h3: {
-    color: colors.primary,
+    color: colors.blackish,
     fontFamily: "var(--font-display)",
-    fontSize: "72px",
+    fontSize: "4.8rem",
     fontWeight: "normal",
     lineHeight: 1.4,
-    letterSpacing: "-.9px",
+    letterSpacing: 0,
   },
   h4: {
-    color: colors.primary,
+    color: colors.blackish,
     fontFamily: "var(--font-display)",
-    fontSize: "122px",
-    fontWeight: "lighter",
+    fontSize: "3.4rem",
+    fontWeight: "normal",
     lineHeight: 1.4,
-    letterSpacing: "-.9px",
+    letterSpacing: ".25px",
   },
   h5: {
-    color: colors.primary,
+    color: colors.blackish,
     fontFamily: "var(--font-display)",
-    fontSize: "122px",
-    fontWeight: "lighter",
+    fontSize: "2.4rem",
+    fontWeight: "normal",
     lineHeight: 1.4,
-    letterSpacing: "-.9px",
+    letterSpacing: 0,
   },
   h6: {
-    color: colors.primary,
-    fontFamily: "var(--font-body)",
-    fontSize: "122px",
-    fontWeight: "lighter",
+    color: colors.blackish,
+    fontFamily: "var(--font-display)",
+    fontSize: "2rem",
+    fontWeight: "medium",
     lineHeight: 1.4,
-    letterSpacing: "-.9px",
+    letterSpacing: ".15px",
   },
   subtitle1: {
-    color: colors.primary,
+    color: colors.blackish,
     fontFamily: "var(--font-display)",
-    fontSize: "122px",
-    fontWeight: "lighter",
+    fontSize: "1.6rem",
+    fontWeight: "normal",
     lineHeight: 1.4,
-    letterSpacing: "-.9px",
+    letterSpacing: ".15px",
   },
   subtitle2: {
-    color: colors.primary,
+    color: colors.blackish,
     fontFamily: "var(--font-display)",
-    fontSize: "122px",
-    fontWeight: "lighter",
+    fontSize: "1.4rem",
+    fontWeight: "medium",
     lineHeight: 1.4,
-    letterSpacing: "-.9px",
+    letterSpacing: ".1px",
   },
 };
 
-export const layout = {
+const layout = {
   page: {
     backgroundColor: colors.whitish,
   },
 };
 
-let theme = { colors, colorVariants, fonts, text, layout };
+let theme = { screens, colors, colorVariants, fonts, text, layout };
 
-export default theme;
+module.exports = theme;
