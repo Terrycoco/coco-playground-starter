@@ -26,54 +26,77 @@ const fonts = {
 };
 
 const text = {
+  p: {
+    color: "var(--clr-blackish)",
+    fontFamily: "var(--font-body)",
+    fontWeight: "400",
+    fontSize: "1rem",
+    lineHeight: "150%",
+    fontVariationSettings: `"wght" 400`, // 1 - 1000 works font-variation-settings
+    letterSpacing: 0,
+    wordSpacing: 0,
+    maxWidth: "60ch",
+  },
   h1: {
-    color: colors.blackish,
+    color: "var(--clr-blackish)",
     fontFamily: "var(--font-display)",
-    fontSize: "6.063rem",
-    fontWeight: "lighter",
-    lineHeight: 1,
+    fontWeight: "400",
+    fontSize: "2rem",
+    lineHeight: "150%",
+    fontVariationSettings: `"wght" 400`, // 1 - 1000 works font-variation-settings
     letterSpacing: "-1.5px",
     wordSpacing: "-5px",
   },
+
   h2: {
-    color: colors.blackish,
+    color: "var(--clr-blackish)",
     fontFamily: "var(--font-display)",
-    fontSize: "4.75rem",
-    fontWeight: "lighter",
-    lineHeight: 1.1,
-    letterSpacing: "-0.5px",
+    fontWeight: "400",
+    fontSize: "1rem",
+    lineHeight: "150%",
+    fontVariationSettings: `"wght" 400`, // 1 - 1000 works font-variation-settings
+    letterSpacing: "-1.5px",
+    wordSpacing: "-5px",
   },
   h3: {
-    color: colors.blackish,
+    color: "var(--clr-blackish)",
     fontFamily: "var(--font-display)",
-    fontSize: "4.8rem",
-    fontWeight: "normal",
-    lineHeight: 1.4,
-    letterSpacing: 0,
+    fontWeight: "400",
+    fontSize: "1rem",
+    lineHeight: "150%",
+    fontVariationSettings: `"wght" 400`, // 1 - 1000 works font-variation-settings
+    letterSpacing: "-1.5px",
+    wordSpacing: "-5px",
   },
   h4: {
-    color: colors.blackish,
+    color: "var(--clr-blackish)",
     fontFamily: "var(--font-display)",
-    fontSize: "3.4rem",
-    fontWeight: "normal",
-    lineHeight: 1.4,
-    letterSpacing: ".25px",
+    fontWeight: "400",
+    fontSize: "1rem",
+    lineHeight: "150%",
+    fontVariationSettings: `"wght" 400`, // 1 - 1000 works font-variation-settings
+    letterSpacing: "-1.5px",
+    wordSpacing: "-5px",
   },
   h5: {
-    color: colors.blackish,
+    color: "var(--clr-blackish)",
     fontFamily: "var(--font-display)",
-    fontSize: "2.4rem",
-    fontWeight: "normal",
-    lineHeight: 1.4,
-    letterSpacing: 0,
+    fontWeight: "400",
+    fontSize: "1rem",
+    lineHeight: "150%",
+    fontVariationSettings: `"wght" 400`, // 1 - 1000 works font-variation-settings
+    letterSpacing: "-1.5px",
+    wordSpacing: "-5px",
   },
   h6: {
-    color: colors.blackish,
+    color: "var(--clr-blackish)",
     fontFamily: "var(--font-display)",
-    fontSize: "2rem",
-    fontWeight: "medium",
-    lineHeight: 1.4,
-    letterSpacing: ".15px",
+    fontWeight: "400",
+    fontSize: "1rem",
+    lineHeight: "150%",
+    fontVariationSettings: `"wght" 400`, // 1 - 1000 works font-variation-settings
+    letterSpacing: "-1.5px",
+    wordSpacing: "-5px",
   },
   subtitle1: {
     color: colors.blackish,
@@ -93,12 +116,18 @@ const text = {
   },
 };
 
+const spacing = {
+  section: {
+    padding: "5% 5%",
+  },
+};
+
 const layout = {
   page: {
     backgroundColor: colors.whitish,
   },
 };
 
-let theme = { screens, colors, colorVariants, fonts, text, layout };
+let theme = { screens, colors, colorVariants, fonts, text, spacing, layout };
 
 module.exports = theme;
