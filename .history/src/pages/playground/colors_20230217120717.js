@@ -17,7 +17,6 @@ export default function Playground() {
   const clickMe = (e, sect, el) => {
     e.stopPropagation();
     e.preventDefault();
-    console.log("clicking:", sect, el);
     setStyleObj(theme[sect][el]);
     setSection(sect);
     setElement(el);
@@ -26,12 +25,6 @@ export default function Playground() {
   //console.log("playground gets theme: ", theme);
   return (
     <>
-      <Head>
-        <title>Style Playground</title>
-        <meta name="description" content="Play with Project Styles" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <main>
         <Page onClick={clickMe}>
           <StyleForm
@@ -41,18 +34,7 @@ export default function Playground() {
             styleObj={styleObj}
           />
 
-          <section style={{ maxWidth: "500px" }}>
-            <Text key={Math.random()} elem="h1" clicked={clickMe}>
-              Welcome to the Playground!
-            </Text>
-
-            <Text key={Math.random()} elem="h2" clicked={clickMe}>
-              I am a h2 heading
-            </Text>
-            <Text key={Math.random()} elem="h3" clicked={clickMe}>
-              I am a h3 heading
-            </Text>
-          </section>
+          <section style={{ maxWidth: "600px" }}></section>
         </Page>
       </main>
     </>

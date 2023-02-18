@@ -1,0 +1,52 @@
+/*THIS FILE IS AUTOMATICALLY PRODUCED FROM THEME SETTINGS
+DO NOT MAKE CHANGES HERE */
+
+@import "./fonts.css";
+
+:root {
+  --mobile: 0em;
+  --lg-mobile: 36em;
+  --tablet: 48em;
+  --laptop: 62em;
+  --desktop: 75em;
+  --tv: 87.5em;
+  --clr-primary: #fc3a79;
+  --clr-secondary: #fe572e;
+  --clr-blackish: #261f22;
+  --clr-whitish: #f5f5f4;
+  --clr-error: #dc2626;
+  --font-body: var(--font-montserrat);
+  --font-display: var(--font-josefin-sans);
+  --font-special: var(--font-oleo-script);
+  --font-mono: var(--font-space-mono);
+  font-size: 16px;
+  font-family: var(--font-body);
+
+  @media screen and (min-width: var(--lg-mobile)) {
+    html {
+      font-size: 17px;
+      color: red;
+    }
+  }
+
+  @media screen and (min-width: var(--tablet)) {
+    html {
+      font-size: 19px;
+    }
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-size: 1.666rem;
+  }
+
+  h3 {
+    font-family: var(--font-display);
+    font-size: 1.333rem;
+  }
+}

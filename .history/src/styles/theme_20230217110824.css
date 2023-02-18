@@ -1,0 +1,78 @@
+:root {
+  --font-montserrat: "__Montserrat_258d1f", "__Montserrat_Fallback_258d1f";
+
+  --font-roboto-flex: "__Roboto_Flex_442174", "__Roboto_Flex_Fallback_442174";
+
+  --font-sansita-swashed: "__Sansita_Swashed_04f9e8",
+    "__Sansita_Swashed_Fallback_04f9e8";
+
+  --font-oleo-script: "__Oleo_Script_5e044c", "__Oleo_Script_Fallback_5e044c";
+
+  .__variable_d8c39e {
+    --font-open_sans: "__Open_Sans_d8c39e", "__Open_Sans_Fallback_d8c39e";
+  }
+  .__variable_9d0dbd {
+    --font-comfortaa: "__Comfortaa_9d0dbd", "__Comfortaa_Fallback_9d0dbd";
+  }
+  .__variable_77395d {
+    --font-roboto_mono: "__Roboto_Mono_77395d", "__Roboto_Mono_Fallback_77395d";
+  }
+  .__variable_e3f065 {
+    --font-roboto-serif: "__Roboto_Serif_e3f065",
+      "__Roboto_Serif_Fallback_e3f065";
+  }
+  .__variable_0c9f22 {
+    --font-bitter: "__Bitter_0c9f22", "__Bitter_Fallback_0c9f22";
+  }
+  .__variable_96312a {
+    --font-lora: "__Lora_96312a", "__Lora_Fallback_96312a";
+  }
+
+  --font-josefin-sans: "__Josefin_Sans_d19b53", "__Josefin_Sans_Fallback_d19b53";
+
+  .__variable_6f438c {
+    --font-karla: "__Karla_6f438c", "__Karla_Fallback_6f438c";
+  }
+  .__variable_db5bc9 {
+    --font-quicksand: "__Quicksand_db5bc9", "__Quicksand_Fallback_db5bc9";
+  }
+  .__variable_df66b1 {
+    --font-work-sans: "__Work_Sans_df66b1", "__Work_Sans_Fallback_df66b1";
+  }
+  .__variable_5adf47 {
+    --font-rubik: "__Rubik_5adf47", "__Rubik_Fallback_5adf47";
+  }
+  .__variable_81bb96 {
+    --font-nunito: "__Nunito_81bb96", "__Nunito_Fallback_81bb96";
+  }
+  .__variable_267efd {
+    --font-playfair-display: "__Playfair_Display_267efd",
+      "__Playfair_Display_Fallback_267efd";
+  }
+  .__variable_f90887 {
+    --font-space-mono: "__Space_Mono_f90887", "__Space_Mono_Fallback_f90887";
+  }
+  .__variable_9c9965 {
+    --font-inter: "__Inter_9c9965", "__Inter_Fallback_9c9965";
+  }
+  .__variable_6a7471 {
+    --font-raleway: "__Raleway_6a7471", "__Raleway_Fallback_6a7471";
+  }
+
+  --mobile: 0em;
+  --lg-mobile: 36em;
+  --tablet: 48em;
+  --laptop: 62em;
+  --desktop: 75em;
+  --tv: 87.5em;
+  --clr-primary: #fc3a79;
+  --clr-secondary: #fe572e;
+  --clr-blackish: #261f22;
+  --clr-whitish: #f5f5f4;
+  --clr-error: #dc2626;
+
+  --font-body: var(--font-montserrat);
+  --font-display: var(--font-josefin-sans);
+  --font-special: var(--font-oleo-script);
+  --font-mono: var(--font-space-mono);
+}
