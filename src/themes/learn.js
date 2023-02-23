@@ -1,11 +1,21 @@
 const screens = {
   //min widths
   mobile: "0em",
-  lgMobile: "36em", //576px
-  tablet: "48em", //768px
-  laptop: "62em", //992
-  desktop: "75em", //1200px
-  tv: "87.5em", //1400px
+  lgMobile: "36em",
+  tablet: "48em",
+  laptop: "62em",
+  desktop: "75em",
+  tv: "87.5em",
+};
+
+const baseFontSizes = {
+  //must match screen keys
+  mobile: "16px",
+  lgMobile: "17px",
+  tablet: "18px",
+  laptop: "19px",
+  desktop: "20px",
+  tv: "21px",
 };
 
 const colors = {
@@ -30,7 +40,7 @@ const text = {
     color: "var(--clr-blackish)",
     fontFamily: "var(--font-body)",
     fontWeight: "400",
-    fontSize: "1rem",
+    fontSize: "1em",
     lineHeight: "150%",
     fontVariationSettings: `"wght" 400`, // 1 - 1000 works font-variation-settings
     letterSpacing: 0,
@@ -41,7 +51,7 @@ const text = {
     color: "var(--clr-blackish)",
     fontFamily: "var(--font-display)",
     fontWeight: "400",
-    fontSize: "2rem",
+    fontSize: "2em",
     lineHeight: "150%",
     fontVariationSettings: `"wght" 400`, // 1 - 1000 works font-variation-settings
     letterSpacing: "-1.5px",
@@ -52,7 +62,7 @@ const text = {
     color: "var(--clr-blackish)",
     fontFamily: "var(--font-display)",
     fontWeight: "400",
-    fontSize: "1rem",
+    fontSize: "1.5874em",
     lineHeight: "150%",
     fontVariationSettings: `"wght" 400`, // 1 - 1000 works font-variation-settings
     letterSpacing: "-1.5px",
@@ -62,7 +72,7 @@ const text = {
     color: "var(--clr-blackish)",
     fontFamily: "var(--font-display)",
     fontWeight: "400",
-    fontSize: "1rem",
+    fontSize: "1.2599em",
     lineHeight: "150%",
     fontVariationSettings: `"wght" 400`, // 1 - 1000 works font-variation-settings
     letterSpacing: "-1.5px",
@@ -128,6 +138,15 @@ const layout = {
   },
 };
 
-let theme = { screens, colors, colorVariants, fonts, text, spacing, layout };
+let theme = {
+  screens,
+  baseFontSizes,
+  colors,
+  colorVariants,
+  fonts,
+  text,
+  spacing,
+  layout,
+};
 
 module.exports = theme;
