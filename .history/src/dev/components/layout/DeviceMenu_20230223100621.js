@@ -1,0 +1,77 @@
+import Link from "next/link";
+import { useState, useEffect } from "react";
+//import styled from "styled-components";
+import styles from "./layout.module.css";
+import { useTheme } from "@/hooks";
+
+const DeviceMenu = ({ showSettings, ...props }) => {
+  const { theme } = useTheme();
+  const [device, setDevice] = useState(props.device);
+  const [showMe, setShowMe] = useState(showSettings);
+
+  const changeDevice = (e) => {
+    props.onChange(e);
+  };
+
+  useEffect(() => {
+    setShowMe(showSettings);
+  }, [showSettings]);
+
+  const toggleSettings = () => {
+    props.onClickSettings();
+  };
+
+  const getCN = (id) => {
+    if (device === id || (id === "settings" && showMe === true)) {
+      return "selected";
+    } else {
+      return "unselected";
+    }
+  };
+
+  return (
+    <>
+      <div className={styles.devicemenu}>
+        <nav>
+          <ul>
+            <li>
+              <a id="mobile" onClick={changeDevice} className={getCN("mobile")}>
+                Mobile
+              </a>
+            </li>
+            <li>
+              <a
+                id="lgMobile"
+                onClick={changeDevice}
+                className={getCN("lgMobile")}
+              >
+                Lg Mobile
+              </a>
+            </li>
+            <li>
+              <a id="tablet" onClick={changeDevice} className={getCN("tablet")}>
+                Tablet
+              </a>
+            </li>
+            <li>
+              <a id="laptop" onClick={changeDevice} className={getCN("laptop")}>
+                Laptop
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <nav>
+          <ul>
+            <li>
+              <a id="settings" onClick={toggleSettings}>
+                Settings
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </>
+  );
+};
+
+export default DeviceMenu;

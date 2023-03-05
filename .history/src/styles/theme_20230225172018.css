@@ -1,0 +1,172 @@
+/*THIS FILE IS AUTOMATICALLY PRODUCED FROM THEME SETTINGS
+DO NOT MAKE CHANGES HERE */
+
+@import "./reset.css";
+
+@import "./fonts.css";
+
+:root {
+  font-size: 8px;
+  --clr-primary: #fc3a79;
+  --clr-secondary: #fe572e;
+  --clr-blackish: #261f22;
+  --clr-whitish: #f5f5f4;
+  --clr-error: #dc2626;
+  --font-body: var(--font-montserrat);
+  --font-display: var(--font-josefin-sans);
+  --font-special: var(--font-oleo-script);
+  --font-mono: var(--font-space-mono);
+  --header-h: 6rem;
+}
+
+p: {
+  color: var(--clr-blackish);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 2em;
+  line-height: 150%;
+  font-variation-settings: "wght" 400;
+  letter-spacing: 0;
+  word-spacing: 0;
+  max-width: 60ch;
+}
+
+h1: {
+  color: var(--clr-blackish);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 3.1748rem;
+  line-height: 115%;
+  font-variation-settings: "wght" 400;
+  letter-spacing: -1.5px;
+  word-spacing: -5px;
+}
+
+h2: {
+  color: var(--clr-blackish);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 2.5198em;
+  line-height: 150%;
+  font-variation-settings: "wght" 400;
+  letter-spacing: -1.5px;
+  word-spacing: -5px;
+}
+
+h3: {
+  color: var(--clr-blackish);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 2em;
+  line-height: 150%;
+  font-variation-settings: "wght" 400;
+  letter-spacing: -1.5px;
+  word-spacing: -5px;
+}
+
+h4: {
+  color: var(--clr-blackish);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 150%;
+  font-variation-settings: "wght" 400;
+  letter-spacing: -1.5px;
+  word-spacing: -5px;
+}
+
+h5: {
+  color: var(--clr-blackish);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 150%;
+  font-variation-settings: "wght" 400;
+  letter-spacing: -1.5px;
+  word-spacing: -5px;
+}
+
+h6: {
+  color: var(--clr-blackish);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 150%;
+  font-variation-settings: "wght" 400;
+  letter-spacing: -1.5px;
+  word-spacing: -5px;
+}
+
+small: {
+  color: var(--clr-blackish);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 150%;
+  font-variation-settings: "wght" 400;
+  letter-spacing: -1.5px;
+  word-spacing: -5px;
+}
+
+subtitle1: {
+  color: #261f22;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: normal;
+  line-height: 1.4;
+  letter-spacing: 0.15px;
+}
+
+subtitle2: {
+  color: #261f22;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: medium;
+  line-height: 1.4;
+  letter-spacing: 0.1px;
+}
+
+@media (min-width: 320px) {
+  html {
+    font-size: 8px;
+  }
+  body {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 481px) {
+  html {
+    font-size: 10px;
+  }
+  body {
+    font-size: 1.8rem;
+  }
+}
+
+@media (min-width: 769px) {
+  html {
+    font-size: 11px;
+  }
+  body {
+    font-size: 1.7272rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  html {
+    font-size: 11px;
+  }
+  body {
+    font-size: 1.7272rem;
+  }
+}
+
+@media (min-width: 1201px) {
+  html {
+    font-size: 12px;
+  }
+  body {
+    font-size: 1.6666rem;
+  }
+}

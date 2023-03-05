@@ -1,0 +1,7 @@
+.isSelected {
+  border: 1px solid red;
+}
+
+.isNotSelected {
+  border: none;
+}

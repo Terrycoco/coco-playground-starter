@@ -1,0 +1,7 @@
+.isSelected {
+  outline: 1px solid red;
+}
+
+.isNotSelected {
+  outline: none;
+}

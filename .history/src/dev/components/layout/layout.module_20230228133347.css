@@ -1,0 +1,98 @@
+.mainmenu {
+  position: fixed;
+  height: var(--sp-header-height);
+  line-height: var(--sp-header-height);
+  width: 100vw;
+  right: 1rem;
+  left: 0;
+  z-index: 999;
+  top: 0;
+  background: var(--clr-primary);
+  border-bottom: 1px solid lightgray;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 0;
+  padding-right: 1rem;
+}
+
+.devicemenu {
+  position: fixed;
+  height: var(--sp-header-height);
+  line-height: var(--sp-header-height);
+  width: 100vw;
+  right: 1rem;
+  left: 0;
+  z-index: 999;
+  top: var(--header-h);
+  background: var(--clr-whitish);
+  border-bottom: 1px solid lightgray;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 0;
+  padding-right: 2rem;
+  align-items: center;
+}
+
+.mainmenu nav {
+  display: flex;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+.devicemenu nav {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.mainmenu ul,
+.devicemenu ul {
+  display: flex;
+  justify-content: flex-end;
+  box-sizing: border-box;
+}
+
+.mainmenu li,
+.devicemenu li {
+  list-style: none;
+  margin-right: 2rem;
+}
+
+.mainmenu li a {
+  text-decoration: none;
+  color: var(--clr-whitish);
+  text-transform: uppercase;
+  font-family: var(--font-display);
+  font-weight: normal;
+}
+.mainmenu li a:hover {
+  color: white;
+  font-weight: bold;
+}
+
+.devicemenu li a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: var(--font-display);
+  font-weight: normal;
+}
+
+.devicemenu li a:hover {
+  color: var(--clr-primary);
+}
+
+.page {
+  min-height: 100vh;
+  width: 100vw;
+  overflow-y: scroll;
+  z-index: 0;
+}
+
+.selected {
+  color: var(--clr-primary);
+}
+
+.unselected {
+  color: var(--clr-blackish);
+}
