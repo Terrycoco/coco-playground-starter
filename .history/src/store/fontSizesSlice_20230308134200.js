@@ -37,12 +37,30 @@ export const scaleSlice = createSlice({
       return { ...state, all: newstate };
     },
     addLevel(state, action) {
-      //"mutate" existing state no return value needed
       //use current ratio to build next level
-      state.all[action.payload.device][action.payload.level] = {
-        fontSize: action.payload.fontSize,
-        lineHeight: action.payload.lineHeight,
-      };
+      let keys = Object.keys(state.all.mobile);
+      console.log("keys:", keys);
+      let keyCount = keys.length;
+      console.log("keyCount:", keyCount);
+      let lastKey = keyCount === 1 ? "body" : "fs" + (keyCount - 1);
+      console.log("lastkey:", lastKey);
+      let newKey = "fs" + keyCount;
+      console.log("newkey:", keyKey);
+      let newstate = {};
+
+      for (const device in state.all) {
+        newstate[device] = { ...state[device] };
+        let prevFS = state[device][lastKey].fontSize;
+        let newFS = prevFS * state.ratio;
+
+        newstate[device][newKey] = {
+          fontSize: parseInt(newFS),
+          lineHeight: state[device][lastKey].lineHeight,
+        };
+      }
+      // console.log("updated! newstate: ", { ...state, all: newstate });
+      // return { ...state, all: newstate };
+      return { ...state, all: state.all };
     },
 
     extraReducers: {

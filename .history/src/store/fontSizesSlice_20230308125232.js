@@ -33,16 +33,20 @@ export const scaleSlice = createSlice({
           )
         );
       }
-      console.log("deleted! newstate: ", { ...state, all: newstate });
+      console.log("deleted: newstate: ", { ...state, all: newstate });
       return { ...state, all: newstate };
     },
     addLevel(state, action) {
-      //"mutate" existing state no return value needed
-      //use current ratio to build next level
-      state.all[action.payload.device][action.payload.level] = {
-        fontSize: action.payload.fontSize,
-        lineHeight: action.payload.lineHeight,
-      };
+      //action payload has levelName and the values
+      let newstate = {};
+      for (const device in state.all) {
+        newstate[device] = { ...state[device] };
+        newstate[device][action.payload.level] = {
+          fontSize: action.payload.fontSize,
+          lineHeight: action.payload.lineHeight,
+        };
+      }
+      return { ...state, all: newstate };
     },
 
     extraReducers: {

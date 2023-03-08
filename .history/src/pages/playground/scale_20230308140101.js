@@ -104,6 +104,7 @@ export default function Scale() {
   const [device, setDevice] = useState("mobile");
   const [el, setEl] = useState(null);
   const [tab, setTab] = useState(1);
+  const [levels, setLevels] = useState({});
   const [firstRatio, setFirstRatio] = useState(1.6);
   const [showTheme, setShowTheme] = useState(false);
   const [showSpacing, setShowSpacing] = useState(false);
@@ -116,6 +117,8 @@ export default function Scale() {
     const el = document.getElementById("para");
     setEl(el);
     setRatio();
+    setLevels(Object.assign({}, fontSizes)); //copy or ref?
+    dispatch(updateDevice("mobile")); //default
   }, []);
 
   const styles = {
@@ -194,26 +197,9 @@ export default function Scale() {
     }
   });
 
-  const addHeadingLevel = useCallback(() => {
-    let devices = Object.keys(fontSizes);
-    let keys = Object.keys(currentSizes);
-    let keyCount = keys.length;
-    let lastKey = keyCount === 1 ? "body" : "fs" + (keyCount - 1);
-    let newKey = "fs" + keyCount;
-
-    devices.map((dev) => {
-      let prevFS = fontSizes[dev][lastKey].fontSize; //pct of last size
-      let newFS = parseInt(prevFS * firstRatio);
-      let newLH = fontSizes[dev][lastKey].lineHeight;
-      let payload = {
-        device: dev,
-        level: newKey,
-        fontSize: parseInt(newFS),
-        lineHeight: newLH,
-      };
-      dispatch(addLevel(payload));
-    });
-  });
+  const addLevel = () => {
+    dispatch(addLevel);
+  };
 
   const reset = () => {
     //TODO WARN THAT WILL LOSE ANY HEADINGS SET SO FAR
@@ -246,13 +232,12 @@ export default function Scale() {
 
   const getHeadingStyle = (level) => {
     if (level !== undefined) {
-      let mb = level.replace("fs", "") * 0.5 + 1;
       let style = {
         fontFamily: getFontVariable(displayFont),
         fontSize: currentSizes[level].fontSize + "px",
         lineHeight: currentSizes[level].lineHeight,
         fontWeight: "bold",
-        marginBottom: mb + "rem",
+        marginBottom: level.replace("fs", "") + "em",
       };
       return style;
     }
@@ -295,6 +280,12 @@ export default function Scale() {
 
     for (let i = 0; i < levelCount; i++) {
       let levelName = i == 0 ? "body" : `fs${i}`;
+
+      // if (
+      //   levels &&
+      //   levels.hasOwnProperty(device) &&
+      //   levels[device].hasOwnProperty(levelName)
+      // ) {
       let fs = currentSizes[levelName].fontSize;
       //   // console.log("fs to ", levelName, fs);
       result.unshift(
@@ -307,6 +298,7 @@ export default function Scale() {
           onFontSizeChange={handleFontSizeChange}
         />
       );
+      // }
     }
     return result;
   };
@@ -343,7 +335,7 @@ export default function Scale() {
   return (
     <>
       <Head>
-        <title>Font Sizing</title>
+        <title>Project Sizing Scale</title>
         <meta name="description" content="Modular Sizing For Project" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
@@ -364,7 +356,7 @@ export default function Scale() {
                 <div style={styles.buttonrow}>
                   <Button onClick={reset}>Reset</Button>
                   <Button onClick={deleteLastLevel}>Delete</Button>
-                  <Button onClick={addHeadingLevel}>Add Heading Level</Button>
+                  <Button onClick={addLevel}>Add Heading Level</Button>
                   <Button onClick={toggleTheme}>View Theme</Button>
                 </div>
 

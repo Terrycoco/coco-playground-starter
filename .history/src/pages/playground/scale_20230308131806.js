@@ -104,6 +104,8 @@ export default function Scale() {
   const [device, setDevice] = useState("mobile");
   const [el, setEl] = useState(null);
   const [tab, setTab] = useState(1);
+  const [levelCount, setLevelCount] = useState(0);
+  const [levels, setLevels] = useState({});
   const [firstRatio, setFirstRatio] = useState(1.6);
   const [showTheme, setShowTheme] = useState(false);
   const [showSpacing, setShowSpacing] = useState(false);
@@ -116,6 +118,8 @@ export default function Scale() {
     const el = document.getElementById("para");
     setEl(el);
     setRatio();
+    setLevels(Object.assign({}, fontSizes)); //copy or ref?
+    dispatch(updateDevice("mobile")); //default
   }, []);
 
   const styles = {
@@ -194,26 +198,40 @@ export default function Scale() {
     }
   });
 
-  const addHeadingLevel = useCallback(() => {
-    let devices = Object.keys(fontSizes);
+  const addLevel = () => {
     let keys = Object.keys(currentSizes);
-    let keyCount = keys.length;
-    let lastKey = keyCount === 1 ? "body" : "fs" + (keyCount - 1);
-    let newKey = "fs" + keyCount;
+    let nextlevel = levelCount + 1;
 
-    devices.map((dev) => {
-      let prevFS = fontSizes[dev][lastKey].fontSize; //pct of last size
-      let newFS = parseInt(prevFS * firstRatio);
-      let newLH = fontSizes[dev][lastKey].lineHeight;
-      let payload = {
-        device: dev,
-        level: newKey,
-        fontSize: parseInt(newFS),
-        lineHeight: newLH,
-      };
-      dispatch(addLevel(payload));
-    });
-  });
+    //add new level to levels
+    //let levs = Object.assign({}, levels);
+    //let next = `fs${nextlevel}`;
+    let prev = levelCount === 0 ? "body" : `fs${levelCount}`;
+
+    //add to each device
+    for (let device in theme.screens) {
+      console.log("device:", device);
+
+      if (levels[device].hasOwnProperty(prev) && firstRatio != null) {
+        let suggested = levels[device][prev].fontSize * firstRatio;
+
+        //level doesn't exist add it to this device
+        if (!levs[device].hasOwnProperty(next)) {
+          levs[device][next] = {};
+          levs[device][next].fontSize = parseInt(suggested); //suggest a size?
+          levs[device][next].lineHeight = levs[device][prev].lineHeight;
+        }
+      }
+    }
+
+    setLevelCount(nextlevel);
+    setLevels(levs);
+
+    //save new level to theme?
+    // let newtheme = Object.assign({}, theme);
+    // newtheme.fontSizes = levs;
+    // setTheme(newtheme);
+    // console.log("newtheme:", newtheme);
+  };
 
   const reset = () => {
     //TODO WARN THAT WILL LOSE ANY HEADINGS SET SO FAR
@@ -246,13 +264,12 @@ export default function Scale() {
 
   const getHeadingStyle = (level) => {
     if (level !== undefined) {
-      let mb = level.replace("fs", "") * 0.5 + 1;
       let style = {
         fontFamily: getFontVariable(displayFont),
         fontSize: currentSizes[level].fontSize + "px",
         lineHeight: currentSizes[level].lineHeight,
         fontWeight: "bold",
-        marginBottom: mb + "rem",
+        marginBottom: level.replace("fs", "") + "em",
       };
       return style;
     }
@@ -291,22 +308,27 @@ export default function Scale() {
   const showLevels = () => {
     //only show levels if count is correct
     let result = [];
-    let levelCount = Object.keys(currentSizes).length;
-
-    for (let i = 0; i < levelCount; i++) {
+    for (let i = 0; i < levelCount + 1; i++) {
       let levelName = i == 0 ? "body" : `fs${i}`;
-      let fs = currentSizes[levelName].fontSize;
-      //   // console.log("fs to ", levelName, fs);
-      result.unshift(
-        <FontLevel
-          key={`${device}${levelName}`}
-          fontSize={fs}
-          lineHeight={currentSizes[levelName].lineHeight}
-          levelName={levelName}
-          onLineHeightChange={handleLineHeightChange}
-          onFontSizeChange={handleFontSizeChange}
-        />
-      );
+
+      if (
+        levels &&
+        levels.hasOwnProperty(device) &&
+        levels[device].hasOwnProperty(levelName)
+      ) {
+        let fs = getValFromCSS(levels[device][levelName].fontSize);
+        //   // console.log("fs to ", levelName, fs);
+        result.unshift(
+          <FontLevel
+            key={`${device}${levelName}`}
+            fontSize={fs}
+            lineHeight={levels[device][levelName].lineHeight}
+            levelName={levelName}
+            onLineHeightChange={handleLineHeightChange}
+            onFontSizeChange={handleFontSizeChange}
+          />
+        );
+      }
     }
     return result;
   };
@@ -343,7 +365,7 @@ export default function Scale() {
   return (
     <>
       <Head>
-        <title>Font Sizing</title>
+        <title>Project Sizing Scale</title>
         <meta name="description" content="Modular Sizing For Project" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
@@ -364,7 +386,7 @@ export default function Scale() {
                 <div style={styles.buttonrow}>
                   <Button onClick={reset}>Reset</Button>
                   <Button onClick={deleteLastLevel}>Delete</Button>
-                  <Button onClick={addHeadingLevel}>Add Heading Level</Button>
+                  <Button onClick={generate}>Add Heading Level</Button>
                   <Button onClick={toggleTheme}>View Theme</Button>
                 </div>
 

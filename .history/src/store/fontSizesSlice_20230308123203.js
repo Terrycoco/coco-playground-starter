@@ -5,7 +5,6 @@ import { currentTheme } from "@/themes";
 const initialState = {
   all: currentTheme.fontSizes,
   currentDevice: "mobile",
-  ratio: 2,
 };
 
 export const scaleSlice = createSlice({
@@ -20,9 +19,6 @@ export const scaleSlice = createSlice({
     updateDevice(state, action) {
       state.currentDevice = action.payload;
     },
-    updateRatio(state, action) {
-      state.ratio = action.payload;
-    },
     deleteLevel(state, action) {
       //delete on all levels if there
       let newstate = {};
@@ -33,16 +29,11 @@ export const scaleSlice = createSlice({
           )
         );
       }
-      console.log("deleted! newstate: ", { ...state, all: newstate });
+      console.log("deleted: newstate: ", { ...state, all: newstate });
       return { ...state, all: newstate };
     },
     addLevel(state, action) {
-      //"mutate" existing state no return value needed
-      //use current ratio to build next level
-      state.all[action.payload.device][action.payload.level] = {
-        fontSize: action.payload.fontSize,
-        lineHeight: action.payload.lineHeight,
-      };
+      //add on all levels if not there
     },
 
     extraReducers: {
@@ -56,7 +47,7 @@ export const scaleSlice = createSlice({
   },
 });
 
-export const { update, updateDevice, updateRatio, addLevel, deleteLevel } =
+export const { update, updateDevice, addLevel, deleteLevel } =
   scaleSlice.actions;
 export const selectAllDevices = (state) => state.fontSizes.all;
 export const selectCurrentDeviceSizes = (state) => {

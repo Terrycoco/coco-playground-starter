@@ -252,7 +252,7 @@ export default function Scale() {
         fontSize: currentSizes[level].fontSize + "px",
         lineHeight: currentSizes[level].lineHeight,
         fontWeight: "bold",
-        marginBottom: mb + "rem",
+        marginBottom: mb + "em",
       };
       return style;
     }

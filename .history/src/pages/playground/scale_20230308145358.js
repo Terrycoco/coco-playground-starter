@@ -196,22 +196,31 @@ export default function Scale() {
 
   const addHeadingLevel = useCallback(() => {
     let devices = Object.keys(fontSizes);
+    console.log("devices:", devices);
     let keys = Object.keys(currentSizes);
     let keyCount = keys.length;
+    console.log("keyCount:", keyCount);
     let lastKey = keyCount === 1 ? "body" : "fs" + (keyCount - 1);
+    console.log("lastkey:", lastKey);
     let newKey = "fs" + keyCount;
+    console.log("newkey:", newKey);
 
     devices.map((dev) => {
+      console.log("dev:", dev);
       let prevFS = fontSizes[dev][lastKey].fontSize; //pct of last size
+      console.log("prevFS", prevFS);
       let newFS = parseInt(prevFS * firstRatio);
+      console.log("newFS:", newFS);
       let newLH = fontSizes[dev][lastKey].lineHeight;
+      console.log("newlh", newLH);
       let payload = {
         device: dev,
         level: newKey,
         fontSize: parseInt(newFS),
         lineHeight: newLH,
       };
-      dispatch(addLevel(payload));
+      console.log("payload:", payload);
+      //  dispatch(addLevel(payload));
     });
   });
 
@@ -246,13 +255,12 @@ export default function Scale() {
 
   const getHeadingStyle = (level) => {
     if (level !== undefined) {
-      let mb = level.replace("fs", "") * 0.5 + 1;
       let style = {
         fontFamily: getFontVariable(displayFont),
         fontSize: currentSizes[level].fontSize + "px",
         lineHeight: currentSizes[level].lineHeight,
         fontWeight: "bold",
-        marginBottom: mb + "rem",
+        marginBottom: level.replace("fs", "") + "em",
       };
       return style;
     }

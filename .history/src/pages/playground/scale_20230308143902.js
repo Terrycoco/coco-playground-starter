@@ -110,12 +110,15 @@ export default function Scale() {
   const [showTypography, setShowTypography] = useState(false);
   const [showScale, setShowScale] = useState(false);
   const [showDrawer, setShowDrawer] = useState(true);
+  const [keys, setKeys] = useState([]);
 
   useEffect(() => {
     // must do this here to wait for loading
     const el = document.getElementById("para");
     setEl(el);
     setRatio();
+    setKeys(Object.keys(currentSizes));
+    dispatch(updateDevice("mobile")); //default
   }, []);
 
   const styles = {
@@ -194,26 +197,31 @@ export default function Scale() {
     }
   });
 
-  const addHeadingLevel = useCallback(() => {
-    let devices = Object.keys(fontSizes);
-    let keys = Object.keys(currentSizes);
+  const addLevel = () => {
     let keyCount = keys.length;
+    console.log("keyCount:", keyCount);
     let lastKey = keyCount === 1 ? "body" : "fs" + (keyCount - 1);
+    console.log("lastkey:", lastKey);
     let newKey = "fs" + keyCount;
+    console.log("newkey:", newKey);
 
-    devices.map((dev) => {
+    for (const dev in fontSizes) {
       let prevFS = fontSizes[dev][lastKey].fontSize; //pct of last size
+      console.log("prevFS", prevFS);
       let newFS = parseInt(prevFS * firstRatio);
+      console.log("newFS:", newFS);
       let newLH = fontSizes[dev][lastKey].lineHeight;
+      console.log("newlh", newLH);
       let payload = {
         device: dev,
         level: newKey,
         fontSize: parseInt(newFS),
         lineHeight: newLH,
       };
+      console.log("payload:", payload);
       dispatch(addLevel(payload));
-    });
-  });
+    }
+  };
 
   const reset = () => {
     //TODO WARN THAT WILL LOSE ANY HEADINGS SET SO FAR
@@ -246,13 +254,12 @@ export default function Scale() {
 
   const getHeadingStyle = (level) => {
     if (level !== undefined) {
-      let mb = level.replace("fs", "") * 0.5 + 1;
       let style = {
         fontFamily: getFontVariable(displayFont),
         fontSize: currentSizes[level].fontSize + "px",
         lineHeight: currentSizes[level].lineHeight,
         fontWeight: "bold",
-        marginBottom: mb + "rem",
+        marginBottom: level.replace("fs", "") + "em",
       };
       return style;
     }
@@ -364,7 +371,7 @@ export default function Scale() {
                 <div style={styles.buttonrow}>
                   <Button onClick={reset}>Reset</Button>
                   <Button onClick={deleteLastLevel}>Delete</Button>
-                  <Button onClick={addHeadingLevel}>Add Heading Level</Button>
+                  <Button onClick={addLevel}>Add Heading Level</Button>
                   <Button onClick={toggleTheme}>View Theme</Button>
                 </div>
 
