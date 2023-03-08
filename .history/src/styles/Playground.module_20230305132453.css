@@ -1,0 +1,23 @@
+.page {
+  /* at mobile put form on top */
+  display: flex;
+  flex-direction: column-reverse;
+  height: 95vh;
+  overflow-y: hidden;
+}
+
+@media (min-width: 481px) {
+}
+
+@media (min-width: 769px) {
+  .page {
+    flex-direction: row;
+    min-height: 100vh;
+  }
+}
+
+@media (min-width: 1025px) {
+}
+
+@media (min-width: 1201px) {
+}

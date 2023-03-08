@@ -1,0 +1,34 @@
+.scalepage {
+  /* at mobile put form on top */
+  display: flex;
+  flex-direction: column-reverse;
+  height: 95vh;
+  overflow-y: hidden;
+}
+
+.noscroll-side {
+  height: 90vh;
+  overflow-y: hidden;
+  height: 100%;
+}
+
+.scroll {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+@media (min-width: 481px) {
+}
+
+@media (min-width: 769px) {
+  .scalepage {
+    flex-direction: row;
+    min-height: 100vh;
+  }
+}
+
+@media (min-width: 1025px) {
+}
+
+@media (min-width: 1201px) {
+}

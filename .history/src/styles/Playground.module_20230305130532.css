@@ -1,0 +1,15 @@
+@media (min-width: 481px) {
+}
+
+@media (min-width: 769px) {
+  .scalepage {
+    flex-direction: row;
+    min-height: 100vh;
+  }
+}
+
+@media (min-width: 1025px) {
+}
+
+@media (min-width: 1201px) {
+}

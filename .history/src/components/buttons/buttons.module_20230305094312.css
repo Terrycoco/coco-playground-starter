@@ -1,0 +1,27 @@
+.btn {
+  height: auto;
+  display: inline-block;
+  padding-left: 24px;
+  padding-right: 24px;
+  background-color: var(--clr-primary);
+  color: white;
+  font-size: 12px;
+  line-height: 1;
+  text-transform: uppercase;
+  border-radius: 25px;
+  box-shadow: 0 4px 6px -1px;
+  transition: box-shadow 150ms;
+  font-family: "Arial";
+
+  /* h-auto inline-block px-6  bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out} */
+}
+
+.btn:hover {
+  background-color: darkblue;
+  box-shadow: 0 10px 15px -3px;
+}
+
+.btn:focus {
+  box-shadow: 0 10px 15px -3px;
+  outline: none;
+}
