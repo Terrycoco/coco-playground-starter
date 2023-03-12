@@ -1,0 +1,40 @@
+const StyleGridItem = (props) => {
+  const styles = {
+    row: {
+      display: "flex",
+      flexDirection: "row",
+      width: "100%",
+      minHeight: "16px",
+      borderBottom: "1px solid lightgray",
+    },
+    label: {
+      flexBasis: "50%",
+      paddingLeft: "1rem",
+      fontFamily: "Arial",
+      fontSize: "14px",
+      display: "flex",
+      alignItems: "center",
+      color: "gray",
+      lineHeight: 1,
+    },
+    child: {
+      border: "1px solid lightgray",
+      flexBasis: "50%",
+      width: "100%",
+      fontFamily: "Arial",
+      fontSize: "14px",
+      color: "gray",
+      display: "flex",
+      alignItems: "center",
+      backgroundColor: "yellow",
+    },
+  };
+  return (
+    <div style={styles.row}>
+      <div style={styles.label}>{props.label}</div>
+      <div style={styles.child}>{props.children}</div>
+    </div>
+  );
+};
+
+export default StyleGridItem;

@@ -1,0 +1,75 @@
+.dropbtn {
+  background-color: #fff;
+  border: 1px solid #d5d9d9;
+  border-radius: 3px;
+  box-sizing: border-box;
+  color: var(--clr-blackish);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Amazon Ember", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 29px;
+  height: 35px;
+  padding: 0;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  padding-left: 0.5rem;
+  z-index: 1000;
+}
+
+/* container  - relative so child will position under it */
+.dropdown {
+  position: relative;
+  display: block; /*takes width of parent */
+}
+
+.dropdowncontent {
+  display: none;
+  min-width: 98%;
+  max-height: 0; /* this will change on open */
+  position: absolute;
+  top: 16px;
+  height: 0;
+  background-color: var(--clr-whitish);
+  border: 1px solid darkgray;
+  margin-left: 1px;
+  margin-right: 1%;
+  padding: 0;
+  z-index: 999;
+  transition: max-height 1s;
+  border-radius: 1px;
+}
+
+.open {
+  display: block;
+  height: auto;
+  max-height: 200px;
+}
+
+/* the link options */
+.dropdowncontent li {
+  color: var(--clr-blackish75);
+  background-color: white;
+  font-family: "Amazon Ember", Arial, sans-serif;
+  font-size: 16px;
+  padding: 6px 12px;
+  text-decoration: none;
+  list-style-type: none;
+  display: block;
+}
+
+/* change color of li on hover */
+.dropdowncontent li:hover {
+  background-color: white;
+  color: var(--clr-primary);
+}
+
+.value {
+}

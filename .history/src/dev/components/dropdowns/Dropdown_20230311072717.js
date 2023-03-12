@@ -1,0 +1,62 @@
+import { useState } from "react";
+import css from "./dropdowns.module.css";
+import { mdiMenuDown } from "@mdi/js";
+import { IconButton } from "@/components/buttons";
+
+const Dropdown = (props) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [val, setVal] = useState(props.defaultValue);
+
+  const handleClick = (e) => {
+    setIsOpen(!isOpen);
+  };
+
+  const getClass = () => {
+    if (isOpen) {
+      return `${css.dropdowncontent} ${css.open}`;
+    } else {
+      return css.dropdowncontent;
+    }
+  };
+
+  const handleSelect = (e) => {
+    console.log("clicked", e.target.dataset.value);
+    setVal(e.target.dataset.value);
+    props.onSelect(e.target.dataset.value);
+  };
+
+  return (
+    <div className={css.dropdown}>
+      <div className={css.dropbtn} onClick={handleClick}>
+        <span>{val}</span>{" "}
+        <IconButton type={mdiMenuDown} color="darkgray" onClick={handleClick} />
+      </div>
+
+      <ul className={getClass()}>
+        <li
+          data-value="Rubik"
+          style={{ fontFamily: "var(--font-rubik)" }}
+          onClick={handleSelect}
+        >
+          Option 1
+        </li>
+        <li
+          data-value="Gelasio"
+          style={{ fontFamily: "var(--font-gelasio)" }}
+          onClick={handleSelect}
+        >
+          Option 2
+        </li>
+        <li
+          data-value="Oleo Script"
+          style={{ fontFamily: "var(--font-oleo-script)" }}
+          onClick={handleSelect}
+        >
+          Option 3
+        </li>
+      </ul>
+    </div>
+  );
+};
+
+export default Dropdown;

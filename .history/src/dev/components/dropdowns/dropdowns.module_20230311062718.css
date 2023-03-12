@@ -1,0 +1,54 @@
+.dropbtn {
+  background-color: #4caf50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* container  - relative so child will position under it */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdowncontent {
+  display: none;
+  min-width: max-content;
+  max-height: 0; /* this will change  to block on open */
+  position: absolute;
+  top: 30px;
+  height: 0;
+  background-color: var(--clr-whitish);
+  min-width: "100%";
+  box-shadow: 0px 8px 16px 0 px rgba(0, 0, 0, 0.2);
+  padding: 0;
+  z-index: 999;
+  transition: max-height 1s;
+}
+
+.open {
+  display: block;
+  max-height: 200px;
+}
+
+/* the link options */
+.dropdowncontent li {
+  color: var(--clr-blackish50);
+  background-color: var(--clr-whitish);
+  font-size: 14px;
+  padding: 6px 12px;
+  text-decoration: none;
+  list-style-type: none;
+  display: block;
+}
+
+/* change color of li on hover */
+.dropdowncontent li:hover {
+  background-color: white;
+  color: var(--clr-primary);
+}
