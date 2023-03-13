@@ -1,0 +1,21 @@
+.drawer {
+  height: 100vh;
+  width: 0;
+  position: fixed;
+  z-index: 4;
+  top: 0;
+  right: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 60px;
+  transition: 0.5x;
+  box-shadow: 0 0px 0px 8px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.drawer .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
