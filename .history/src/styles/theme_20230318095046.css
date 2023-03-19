@@ -1,0 +1,200 @@
+/*THIS FILE IS AUTOMATICALLY PRODUCED FROM THEME SETTINGS
+DO NOT MAKE CHANGES HERE */
+@import "./reset.css";
+@import "./fonts.css";
+
+:root {
+  --clr-primary: #fc3a79;
+  --clr-secondary: #fe572e;
+  --clr-blackish: #261f22;
+  --clr-whitish: #f5f5f4;
+  --clr-error: #dc2626;
+  --clr-primary75: #fd6b99;
+  --clr-primary50: #fe9dbb;
+  --clr-primary25: #fecedd;
+  --clr-primary10: #ffebf1;
+  --clr-primary5: #fff5f8;
+  --clr-secondary75: #fe8162;
+  --clr-secondary50: #feab96;
+  --clr-secondary25: #ffd5cb;
+  --clr-secondary10: #ffeeea;
+  --clr-secondary5: #fff7f5;
+  --clr-blackish75: #635158;
+  --clr-blackish50: #9c868f;
+  --clr-blackish25: #cdc2c7;
+  --clr-blackish10: #ebe7e9;
+  --clr-blackish5: #f5f3f4;
+  --font-body: var(--font-gelasio);
+  --font-display: var(--font-gelasio);
+  --font-special: var(--font-oleo-script);
+  --font-mono: var(--font-space-mono);
+  --font-forms: var(--font-poppins);
+  font-size: 18px;
+  line-height: 1.5;
+  --fs-body: 18px;
+  --lh-body: 1.5;
+  --fs-p: 18px;
+  --lh-p: 1.5;
+  --fs-h2: 25px;
+  --lh-h2: 1.16;
+  --fs-sm: 0.8rem;
+  --fs-xs: 0.6rem;
+  --fs-h1: 40px;
+  --lh-h1: 1.16;
+  --sp-header: 1rem;
+  --sp-page: 1rem;
+  --sp-section: 1rem;
+}
+
+p {
+  color: var(--clr-blackish);
+  font-family: var(--font-gelasio);
+  font-weight: 400;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-variation-settings: wght 400;
+  letter-spacing: 0;
+  word-spacing: 0;
+  max-width: 60ch;
+}
+
+h1 {
+  color: var(--clr-blackish);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--fs-h1);
+  line-height: var(--lh-h1);
+  font-variation-settings: wght 400;
+  letter-spacing: -1.5px;
+  word-spacing: -5px;
+}
+
+h2 {
+  color: var(--clr-blackish);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
+  font-variation-settings: wght 400;
+  letter-spacing: -1.5px;
+  word-spacing: -5px;
+}
+
+h3 {
+  color: var(--clr-blackish);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 150%;
+  font-variation-settings: wght 400;
+  letter-spacing: 0px;
+  word-spacing: 0px;
+}
+
+h4 {
+  color: var(--clr-blackish);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 150%;
+  font-variation-settings: wght 400;
+  letter-spacing: 0px;
+  word-spacing: 0px;
+}
+
+h5 {
+  color: var(--clr-blackish);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 150%;
+  font-variation-settings: wght 400;
+  letter-spacing: 0px;
+  word-spacing: 0px;
+}
+
+h6 {
+  color: var(--clr-blackish);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 150%;
+  font-variation-settings: wght 400;
+  letter-spacing: 0px;
+  word-spacing: 0px;
+}
+
+small {
+  color: var(--clr-blackish);
+  font-family: var(--font-forms);
+  font-weight: 400;
+  font-size: var(--fs-sm);
+  line-height: 1;
+  font-variation-settings: wght 400;
+  letter-spacing: -1.5px;
+  word-spacing: -5px;
+}
+
+section {
+  padding: var(--sp-section-padding);
+}
+
+nav {
+  font-size: 14px;
+}
+
+@media (min-width: 480) {
+  :root {
+    font-size: 19px;
+    --fs-body: 19px;
+    --lh-body: 1.5;
+    --fs-p: 18px;
+    --lh-p: 1.5;
+    --fs-h2: 25px;
+    --lh-h2: 1.16;
+    --fs-h1: 40px;
+    --lh-h1: 1.16;
+  }
+}
+
+@media (min-width: 768) {
+  :root {
+    font-size: 20px;
+    --fs-body: 20px;
+    --lh-body: 1.329;
+    --fs-p: 18px;
+    --lh-p: 1.5;
+    --fs-h2: 40px;
+    --lh-h2: 1.16;
+    --fs-h1: 52px;
+    --lh-h1: 1.16;
+  }
+}
+
+@media (min-width: 1024) {
+  :root {
+    font-size: 24px;
+    --fs-body: 24px;
+    --lh-body: 1.345;
+    --fs-p: 18px;
+    --lh-p: 1.5;
+    --fs-h2: 34px;
+    --lh-h2: 1.16;
+    --fs-h1: 57px;
+    --lh-h1: 1.16;
+  }
+}
+
+@media (min-width: 1200) {
+  :root {
+    font-size: 28px;
+    --fs-body: 28px;
+    --lh-body: 1.391;
+    --fs-p: 18px;
+    --lh-p: 1.5;
+    --fs-h2: 37px;
+    --lh-h2: 1.16;
+    --fs-h1: 67px;
+    --lh-h1: 1.031;
+  }
+}

@@ -1,0 +1,7 @@
+.element {
+  outline: none;
+}
+
+.element:focus-within {
+  outline: 1px solid red;
+}
